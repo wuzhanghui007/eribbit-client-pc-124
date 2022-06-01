@@ -9,7 +9,6 @@ const instance = axios.create({
 // 请求拦截
 instance.interceptors.request.use(config => {
   const { profile } = store.state.user
-  console.log(profile.token)
   if (profile.token) {
     config.headers.Authorization = `Bearer${profile.token}`
   }
