@@ -10,7 +10,8 @@ const routes = [
     children: [
       { path: '/', component: Home },
       { path: '/category/:id', component: topCategory },
-      { path: '/category/sub/:id', component: Sub }
+      { path: '/category/sub/:id', component: Sub },
+      { path: '/product/:id', component: topCategory }
 
     ]
   }
