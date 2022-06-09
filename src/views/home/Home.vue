@@ -11,6 +11,12 @@
       <homeNew/>
       <!-- 人气推荐 -->
       <HomeHot/>
+      <!-- 热门品牌 -->
+      <HomBrand/>
+      <!-- 商品推荐 -->
+      <HomeProduct/>
+      <!-- 最新专题 -->
+      <HomeSpecial />
 
     </div>
     </div>
@@ -20,12 +26,18 @@ import homeCategory from './components/home-category.vue'
 import HomeBanner from './components/home-banner'
 import homeNew from './components/home-new.vue'
 import HomeHot from './components/home-hot.vue'
+import HomBrand from './components/home-brand.vue'
+import HomeProduct from './components/home-product.vue'
+import HomeSpecial from './components/home-special.vue'
 export default {
   components: {
     homeCategory,
     HomeBanner,
     homeNew,
-    HomeHot
+    HomeHot,
+    HomBrand,
+    HomeProduct,
+    HomeSpecial
   }
 
 }

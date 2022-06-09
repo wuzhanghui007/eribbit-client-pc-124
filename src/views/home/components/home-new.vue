@@ -6,34 +6,43 @@
       </template>
     </HomePanel>
       <!-- 面板内容 -->
-      <ul class="goods-list">
-        <li v-for="item in goods" :key="item.id">
-          <RouterLink :to="`/product/${item.id}`">
-            <img :src="item.picture" alt="">
-            <p class="name ellipsis">{{item.name}}</p>
-            <p class="price">&yen;{{item.price}}</p>
-          </RouterLink>
-        </li>
-      </ul>
+    <div ref="target" style="position: relative;height: 406px;">
+        <Transition name="fade">
+        <ul class="goods-list" v-if="goods.length">
+          <li v-for="item in goods" :key="item.id">
+            <RouterLink :to="`/product/${item.id}`">
+              <img :src="item.picture" alt="">
+              <p class="name ellipsis">{{item.name}}</p>
+              <p class="price">&yen;{{item.price}}</p>
+            </RouterLink>
+          </li>
+        </ul>
+      <HomeSkeleton bg="#f0f9f4" v-else />
+    </Transition>
+    </div>
   </div>
 </template>
 <script>
 import HomePanel from './home-panel.vue'
+import HomeSkeleton from './home-skeleton.vue'
 import { findNew } from '@/api/home'
-import { ref } from 'vue'
+import { useLazyData } from '@/hooks/index'
 export default {
   name: 'homeNew',
   components: {
-    HomePanel
+    HomePanel,
+    HomeSkeleton
   },
   setup (props) {
-    const goods = ref([])
+  /*     const goods = ref([])
     findNew().then((res) => {
       // console.log(res)
       // goods = res.re
       goods.value = res.result
     })
-    return { goods }
+    return { goods } */
+    const { target, result } = useLazyData(findNew)
+    return { target, goods: result }
   }
 }
 </script>
