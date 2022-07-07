@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from '@/views/layout/Layout.vue'
 import Home from '@/views/home/Home.vue'
 import topCategory from '@/views/category'
-import Sub from '@/views/category/sub.vue'
+import Sub from '@/views/category/sub'
 const routes = [
   {
     path: '/',
@@ -20,7 +20,10 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
+  scrollBehavior () {
+    return { left: 0, top: 0 }
+  }
 })
 
 export default router

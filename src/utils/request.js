@@ -4,7 +4,7 @@ import router from '@/router'
 export const baseURL = 'http://pcapi-xiaotuxian-front-devtest.itheima.net/'
 const instance = axios.create({
   baseURL,
-  timeout: 5000
+  timeout: 10000
 })
 // 请求拦截
 instance.interceptors.request.use(config => {
