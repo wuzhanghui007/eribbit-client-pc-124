@@ -5,9 +5,10 @@
     <sub-bread/>
     <!-- 分类过滤 -->
     <subFilter @filter-change="filterChange"/>
-    <!-- 排序区 -->
+
     <!-- 商品面板（排序+列表） -->
     <div class="goods-list">
+          <!-- 排序区 -->
       <sub-sort @sort-change="sortChange" />
     <!-- 列表 -->
       <ul>
