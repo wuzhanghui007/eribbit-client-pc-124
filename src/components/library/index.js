@@ -4,11 +4,10 @@ import xtxCarousel from './xtx-carousel.vue'
 import xtxMore from './xtx-more.vue'
 import xtxBread from './xtx-bread.vue'
 import xtxBreadItem from './xtx-bread-item.vue' */
-
+import Message from './Message'
 // require(目录，是否加载子目录，匹配加载的文件[正则匹配])
 import defaultImg from '@/assets/images/200.png'
 const importFn = require.context('./', false, /\.vue$/)
-
 export default {
   install (app) {
     // 自定义组件
@@ -27,6 +26,8 @@ export default {
     })
     // 自定义指令
     defineDirective(app)
+    // 如果你想挂载全局的属性，能够通过组件实例调用的属性   this.$message
+    app.config.globalProperties.$message = Message// 原型函数
   }
 }
 const defineDirective = (app) => {
